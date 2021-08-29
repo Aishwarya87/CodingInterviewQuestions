@@ -1,0 +1,22 @@
+#Brute-Force: nested for loops, slow, O(n*n)
+def sumOfTwo(a,b,v):
+    for i in a:
+        needed_value=v-i
+        for j in b:
+            if needed_value==j:
+                return True
+    return False
+#using Hash-Map, O(n) 
+# def sumOfTwo(a,b,v):
+#     complements=[]
+#     for i in a:
+#         c=v-i
+#         complements.append(c)
+#     for j in b:
+#         if j in complements:
+#             return True
+#     return False
+a=[0,0,-5,30212]
+b=[-10,40,-4,9]
+v=-8
+print(sumOfTwo(a,b,v))
