@@ -1,0 +1,39 @@
+#BRUTE-FORCE: TIME COMPLEXITY: O(N*N))
+
+# def firstNonRepeating(s):
+#     l=len(s)
+#     for i in range(l):
+#         seenDuplicate = False
+#         for j in range(l):
+#             if s[i]==s[j] and i != j:
+#                 seenDuplicate=True
+#                 break
+#         if seenDuplicate==False:
+#             return s[i]
+#     return '_'
+# print(firstNonRepeating('aaabccc'))
+# print(firstNonRepeating('abacabad'))
+# print(firstNonRepeating('aaabbccc'))
+
+#Dictionaries are ordered in Python unlike HashMaps in Java
+def firstNonRepeating(s):
+    dict={}
+    l=len(s)
+    for i in range(l):
+        c= s[i]
+        if c in dict:
+            dict[c]+=1
+        else:
+            dict[c]=1
+    for key, value in dict.items():
+        if value == 1:
+            return key
+    return '_'
+print(firstNonRepeating('aaabccc'))
+print(firstNonRepeating('abacabad'))
+print(firstNonRepeating('aaabcccdeeef'))
+
+#Another approach can be making an integer array of 26 size
+# and incrementing the respective values for respective characters
+# if we dont want to use inbuilt dictionary data structure.
+
